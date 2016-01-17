@@ -9,7 +9,7 @@
 
     <title>Hello CalidMedia!</title>
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
-    <link href="http://vjs.zencdn.net/5.4.6/video-js.css" rel="stylesheet">
+    <link href="<%= static_path(@conn, "/css/mediaelementplayer.css") %>" rel="stylesheet">
 
   </head>
 
@@ -24,8 +24,10 @@
       </main>
 
     </div> <!-- /container -->
-    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
-    <script src="http://vjs.zencdn.net/ie8/1.1.1/videojs-ie8.min.js"></script>
 
+    <script src="<%= static_path(@conn, "/js/jquery.js") %>"></script>
+    <script src="<%= static_path(@conn, "/js/mediaelement-and-player.js") %>"></script>
+
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>
