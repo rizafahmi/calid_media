@@ -2,6 +2,6 @@
 
 <ul>
   <%= for file <- @files do %>
-  <li><%= link file, to: page_path(@conn, :index) %></li>
+  <li><%= link file, to: page_path(@conn, :show, file) %></li>
   <% end %>
 </ul>
