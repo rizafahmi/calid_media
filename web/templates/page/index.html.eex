@@ -1,5 +1,4 @@
 <h1 class="ui dividing header">Calid Media Server</h1>
-<button class="ui button teal">Test Semantic Button</button>
 
 <ul>
   <%= for file <- @files do %>
