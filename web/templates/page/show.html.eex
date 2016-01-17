@@ -1,6 +1,9 @@
 <h1 class="ui dividing header">Play Calid Media Server</h1>
 
-<video width="100%" height="100%" controls>
-  <source src="/media/<%= @filename %>" type="video/mp4">
-  Your browser does not support the video tag. Just replace it.
+<video id="videoShow" class="video-js" preload="auto" data-setup="{}" width="100%" height="100%" controls>
+  <source src="/media/<%= @filename %>" type="video/<%= @ext %>">
+  <p class="vjs-no-js">
+  To view this video please enable JavaScript, and consider upgrading to a web browser that
+  <a href="http://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+  </p>
 </video>

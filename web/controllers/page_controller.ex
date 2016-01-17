@@ -11,6 +11,7 @@ defmodule CalidMedia.PageController do
   end
 
   def show(conn, %{"filename" => filename}) do
-    render conn, "show.html", filename: filename
+    [name, ext] = String.split(filename, ".")
+    render conn, "show.html", filename: filename, ext: ext
   end
 end
