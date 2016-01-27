@@ -14,12 +14,20 @@
   </head>
 
   <body>
-    <div class="ui container">
-      <div class="ui secondary menu">
-        <h1 class="item">
+    <div class="ui fixed inverted main menu">
+      <div class="ui container">
+        <div class="item">
             Calid Media Server
-        </h1>
+        </div>
         <div class="right menu">
+          <div class="item">
+            <div class="ui icon input">
+              <form method="GET" action="">
+                <input name="search" type="text" placeholder="Search..." value="<%= @keyword %>">
+                <button type="submit" class="ui icon button"><i class="search link icon"></i></button>
+              </form>
+            </div>
+          </div>
           <a href="/" class="ui item">
             All
           </a>
@@ -31,7 +39,9 @@
           </a>
         </div>
       </div>
+    </div>
 
+    <div class="ui container main-container">
       <main role="main">
         <%= render @view_module, @view_template, assigns %>
       </main>
