@@ -16,6 +16,7 @@ defmodule CalidMedia.PageController do
     {:ok, files} = File.ls(media_dir)
     filtered_files = Enum.filter(files, fn(file) -> String.ends_with?(file, filter) end)
     struct_files = Enum.map(filtered_files, fn(file) -> %CalidMedia.Media{filename: file} end )
+
     render conn, "index.html", files: struct_files
   end
 
