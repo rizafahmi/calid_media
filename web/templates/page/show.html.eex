@@ -1,5 +1,13 @@
 <h1 class="ui dividing header">Play Calid Media Server</h1>
 
-<video id="videoShow" width="100%" height="100%" controls="controls" preload="auto" src="/media/<%= @filename %>" type="video/<%= @ext %>">
-  Your browser does not support the video tag. Just replace it.
+<%= if filetype(@filename) == "mp4" do %>
+<video id="videoShow" width="100%" height="100%" controls="controls" preload="auto" src="/media/<%= @filename %>" type="video/<%= filetype(@filename) %>">
 </video>
+<% else %>
+<audio id="audioShow" width="100%" height="100%" controls="controls" preload="auto" src="/media/<%= @filename %>" type="audio/<%= filetype(@filename) %>">
+</audio>
+<% end %>
+
+<div class="ui horizontal divider">&nbsp;</div>
+
+<%= link "Back", to: page_path(@conn, :index), class: "ui positive button" %>
