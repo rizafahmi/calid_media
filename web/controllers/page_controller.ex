@@ -3,9 +3,18 @@ defmodule CalidMedia.PageController do
   alias CalidMedia.Media
 
   def index(conn, _params) do
+    cond do
+      _params == %{} ->
+        filter = [".mp4", ".mp3"]
+      _params == %{"show" => "video"} ->
+        filter = [".mp4"]
+      _params == %{"show" => "audio"} ->
+        filter = [".mp3"]
+    end
+
     media_dir = "./priv/static/media"
     {:ok, files} = File.ls(media_dir)
-    filtered_files = Enum.filter(files, fn(file) -> String.ends_with?(file, [".mp4", ".mp3"]) end)
+    filtered_files = Enum.filter(files, fn(file) -> String.ends_with?(file, filter) end)
     struct_files = Enum.map(filtered_files, fn(file) -> %CalidMedia.Media{filename: file} end )
     render conn, "index.html", files: struct_files
   end
