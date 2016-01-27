@@ -1,7 +1,20 @@
 <h1 class="ui dividing header">Calid Media Server</h1>
 
-<ul>
+<div class="ui three column grid">
   <%= for file <- @files do %>
-  <li><%= link file.filename, to: page_path(@conn, :show, file) %></li>
+  <div class="column">
+    <div class="ui fluid card">
+      <div class="image">
+        <%= if filetype(file.filename) == "mp4" do %>
+        <img src="/images/video512x512.png">
+        <% else %>
+        <img src="/images/audio512x512.png">
+        <% end %>
+      </div>
+      <div class="content">
+        <%= link file.filename, class: "header", to: page_path(@conn, :show, file) %>
+      </div>
+    </div>
+  </div>
   <% end %>
-</ul>
+</div>
